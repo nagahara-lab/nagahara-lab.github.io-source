@@ -1,1 +1,1 @@
-# nagahara-lab.github.io
+# [nagahara-lab.github.io](https://nagahara-lab.github.io/) [![Build Status](https://travis-ci.com/nagahara-lab/nagahara-lab.github.io-source.svg?branch=master)](https://travis-ci.com/nagahara-lab/nagahara-lab.github.io-source)
