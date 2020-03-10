@@ -1,0 +1,506 @@
+---
+layout: default
+---
+
+| {% if page.background %}
+header.masthead(style="background-image: url('{{ page.background }}')")
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .page-heading
+          h1 {{ page.title }}
+          | {% if page.description %}
+          span.subheading {{ page.description }}
+          | {% endif %}
+| {% else %}
+header.masthead
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .page-heading
+          h1 {{ page.title }}
+          | {% if page.description %}
+          span.subheading {{ page.description }}
+          | {% endif %}
+| {% endif %}
+
+| {% if page.url contains '/ja/' %}
+.container
+  .row
+    .col-lg-3
+      | {% if page.image_url %}
+      img(src="{{page.image_url}}", width="100%")
+      | {% else %}
+      img(src="/assets/imgs/photo.jpeg", width="100%")
+      | {% endif %}
+    .col-lg-9.mx-auto
+      h1 {{ page.member_name }}
+      br
+      | {% if page.job_title %}
+      .row
+        .col-lg-4.offset-lg-1
+          b ポスト:
+        .col-lg-7.mx-auto {{ page.job_title }}
+      | {% endif %}
+      | {% if page.academic_degree %}
+      .row
+        .col-lg-4.offset-lg-1
+          b 学位:
+        .col-lg-7.mx-auto {{ page.academic_degree }}
+      | {% endif %}
+      | {% if page.organization_name %}
+      .row
+        .col-lg-4.offset-lg-1
+          b 所属:
+        .col-lg-7.mx-auto
+          | {% if page.organization_url %}
+          a(href='{{ page.organization_url }}') {{ page.organization_name }}
+          | {% else %}
+          | {{ page.organization_name }}
+          | {% endif %}
+      | {% endif %}
+      | {% if page.research_topics %}
+      .row
+        .col-lg-4.offset-lg-1
+          b 研究内容・専門分野:
+        .col-lg-7.mx-auto {{ page.research_topics }}
+      | {% endif %}
+
+  br
+  .row
+    .col-lg-10.col-md-10.mx-auto
+      h4 職歴
+      ul.history
+        | {% for item in page.employments %}
+        li {{ item.start }}{% if item.end %} - {{ item.end }}{% endif %}, {{ item.name }}{{ item.post }}
+        | {% endfor %}
+      br
+      h4 学歴
+      ul.history
+        | {% for item in page.educations %}
+        li {{ item.date }}, {{ item.name }} {{ item.grade }}
+        | {% endfor %}
+      br
+      h4 受賞
+      ul.history
+        | {% for item in page.awards %}
+        li {{ item.name }}
+        | {% endfor %}
+      br
+
+  br
+  .row
+    .col-lg-10.col-md-10.mx-auto
+      h3 発表文献
+      br
+      h5 論文誌 (査読有)
+      ol(reversed=true)
+        | {% for item in page.journals %}
+        li.publications
+          span {{ item.author }}
+          br
+          span {{ item.title }}
+          br
+          span
+            | {% if item.journal %}
+            | {{ item.journal }},
+            | {% endif %}
+            | {% if item.booktitle %}
+            | {{ item.booktitle }},
+            | {% endif %}
+            | {% if item.volume %}
+            | Vol.{{ item.volume }},
+            | {% endif %}
+            | {% if item.number %}
+            | No.{{ item.number }},
+            | {% endif %}
+            | {% if item.pages and item.pages contains '-' %}
+            | pp.{{ item.pages }},
+            | {% elsif item.pages %}
+            | p.{{ item.pages }},
+            | {% endif %}
+            | {% if item.year and item.month %}
+            | {{ item.year }}.{{ item.month }}
+            | {% elsif item.year %}
+            | {{ item.year }}
+            | {% endif %}
+          br
+          span
+            | {% if item.bibtex %}
+            a(class='bibtex', data-status='false') BibTeX
+            | {% endif %}{% if item.doi %}, 
+            a(href='https://doi.org/{{ item.doi }}') DOI
+            | {% endif %}{% if item.link %}, 
+            a(href='{{ item.link }}') LINK
+            | {% endif %}{% if item.pdf %}, 
+            a(href='{{ item.pdf }}') PDF
+            | {% endif %}{% if item.project_page %}, 
+            a(href='{{ item.project_page }}') project page
+            | {% endif %}{% if item.arxiv %}, 
+            a(href='{{ item.arxiv }}') arXiv
+            | {% endif %}{% if item.url %}, 
+            a(href='{{ item.url }}') URL
+            | {% endif %}{% if item.other %}, 
+            | {{ item.other }}
+            | {% endif %}
+            | {% if item.bibtex %}
+            pre
+              code.language-bibtex
+                | {{ item.bibtex }}
+            | {% endif %}
+        | {% endfor %}
+
+      h5 国際会議 (査読有)
+      ol(reversed=true)
+        | {% for item in page.international_conferences %}
+        li.publications
+          span {{ item.author }}
+          br
+          span {{ item.title }}
+          br
+          span
+            | {% if item.journal %}
+            | {{ item.journal }},
+            | {% endif %}
+            | {% if item.booktitle %}
+            | {{ item.booktitle }},
+            | {% endif %}
+            | {% if item.volume %}
+            | Vol.{{ item.volume }},
+            | {% endif %}
+            | {% if item.number %}
+            | No.{{ item.number }},
+            | {% endif %}
+            | {% if item.pages and item.pages contains '-' %}
+            | pp.{{ item.pages }},
+            | {% elsif item.pages %}
+            | p.{{ item.pages }},
+            | {% endif %}
+            | {% if item.year and item.month %}
+            | {{ item.year }}.{{ item.month }}
+            | {% elsif item.year %}
+            | {{ item.year }}
+            | {% endif %}
+          br
+          span
+            | {% if item.bibtex %}
+            a(class='bibtex', data-status='false') BibTeX
+            | {% endif %}{% if item.doi %}, 
+            a(href='https://doi.org/{{ item.doi }}') DOI
+            | {% endif %}{% if item.link %}, 
+            a(href='{{ item.link }}') LINK
+            | {% endif %}{% if item.pdf %}, 
+            a(href='{{ item.pdf }}') PDF
+            | {% endif %}{% if item.project_page %}, 
+            a(href='{{ item.project_page }}') project page
+            | {% endif %}{% if item.arxiv %}, 
+            a(href='{{ item.arxiv }}') arXiv
+            | {% endif %}{% if item.url %}, 
+            a(href='{{ item.url }}') URL
+            | {% endif %}{% if item.other %}, 
+            | {{ item.other }}
+            | {% endif %}
+            | {% if item.bibtex %}
+            pre
+              code.language-bibtex
+                | {{ item.bibtex }}
+            | {% endif %}
+        | {% endfor %}
+
+      h5 国内学会 (査読無し)
+      ol(reversed=true)
+        | {% for item in page.domestic_conferences %}
+        li.publications
+          span {{ item.author }}
+          br
+          span {{ item.title }}
+          br
+          span
+            | {% if item.journal %}
+            | {{ item.journal }},
+            | {% endif %}
+            | {% if item.booktitle %}
+            | {{ item.booktitle }},
+            | {% endif %}
+            | {% if item.volume %}
+            | Vol.{{ item.volume }},
+            | {% endif %}
+            | {% if item.number %}
+            | No.{{ item.number }},
+            | {% endif %}
+            | {% if item.pages and item.pages contains '-' %}
+            | pp.{{ item.pages }},
+            | {% elsif item.pages %}
+            | p.{{ item.pages }},
+            | {% endif %}
+            | {% if item.year and item.month %}
+            | {{ item.year }}.{{ item.month }}
+            | {% elsif item.year %}
+            | {{ item.year }}
+            | {% endif %}
+          br
+          span
+            | {% if item.bibtex %}
+            a(class='bibtex', data-status='false') BibTeX
+            | {% endif %}{% if item.doi %}, 
+            a(href='https://doi.org/{{ item.doi }}') DOI
+            | {% endif %}{% if item.link %}, 
+            a(href='{{ item.link }}') LINK
+            | {% endif %}{% if item.pdf %}, 
+            a(href='{{ item.pdf }}') PDF
+            | {% endif %}{% if item.project_page %}, 
+            a(href='{{ item.project_page }}') project page
+            | {% endif %}{% if item.arxiv %}, 
+            a(href='{{ item.arxiv }}') arXiv
+            | {% endif %}{% if item.url %}, 
+            a(href='{{ item.url }}') URL
+            | {% endif %}{% if item.other %}, 
+            | {{ item.other }}
+            | {% endif %}
+            | {% if item.bibtex %}
+            pre
+              code.language-bibtex
+                | {{ item.bibtex }}
+            | {% endif %}
+        | {% endfor %}
+| {% else %}
+.container
+  .row
+    .col-lg-3
+      | {% if page.image_url %}
+      img(src="{{page.image_url}}", width="100%")
+      | {% else %}
+      img(src="/assets/imgs/photo.jpeg", width="100%")
+      | {% endif %}
+    .col-lg-9.mx-auto
+      h1 {{ page.member_name }}
+      br
+      | {% if page.job_title %}
+      .row
+        .col-lg-4.offset-lg-1
+          b Job Title:
+        .col-lg-7.mx-auto {{ page.job_title }}
+      | {% endif %}
+      | {% if page.academic_degree %}
+      .row
+        .col-lg-4.offset-lg-1
+          b Academic Degree:
+        .col-lg-7.mx-auto {{ page.academic_degree }}
+      | {% endif %}
+      | {% if page.organization_name %}
+      .row
+        .col-lg-4.offset-lg-1
+          b Organization Name:
+        .col-lg-7.mx-auto
+          | {% if page.organization_url %}
+          a(href='{{ page.organization_url }}') {{ page.organization_name }}
+          | {% else %}
+          | {{ page.organization_name }}
+          | {% endif %}
+      | {% endif %}
+      | {% if page.research_topics %}
+      .row
+        .col-lg-4.offset-lg-1
+          b Research topics:
+        .col-lg-7.mx-auto {{ page.research_topics }}
+      | {% endif %}
+
+  br
+  .row
+    .col-lg-10.col-md-10.mx-auto
+      h4 Employment Record
+      ul.history
+        | {% for item in page.employments %}
+        li {{ item.start }}{% if item.end %} - {{ item.end }}{% endif %}, {{ item.post }}, {{ item.name }}
+        | {% endfor %}
+      br
+      h4 Education
+      ul.history
+        | {% for item in page.educations %}
+        li {{ item.date }}, {{ item.grade }}, {{ item.name }}
+        | {% endfor %}
+      br
+      h4 Award
+      ul.history
+        | {% for item in page.awards %}
+        li {{ item.name }}
+        | {% endfor %}
+      br
+
+  br
+  .row
+    .col-lg-10.col-md-10.mx-auto
+      h2 Publications
+      h4 Journals (Peer-reviewed)
+      ol(reversed=true)
+        | {% for item in page.journals %}
+        li.publications
+          span {{ item.author }}
+          br
+          span {{ item.title }}
+          br
+          span
+            | {% if item.journal %}
+            | {{ item.journal }},
+            | {% endif %}
+            | {% if item.booktitle %}
+            | {{ item.booktitle }},
+            | {% endif %}
+            | {% if item.volume %}
+            | Vol.{{ item.volume }},
+            | {% endif %}
+            | {% if item.number %}
+            | No.{{ item.number }},
+            | {% endif %}
+            | {% if item.pages and item.pages contains '-' %}
+            | pp.{{ item.pages }},
+            | {% elsif item.pages %}
+            | p.{{ item.pages }},
+            | {% endif %}
+            | {% if item.year and item.month %}
+            | {{ item.year }}.{{ item.month }}
+            | {% elsif item.year %}
+            | {{ item.year }}
+            | {% endif %}
+          br
+          span
+            | {% if item.bibtex %}
+            a(class='bibtex', data-status='false') BibTeX
+            | {% endif %}{% if item.doi %}, 
+            a(href='https://doi.org/{{ item.doi }}') DOI
+            | {% endif %}{% if item.link %}, 
+            a(href='{{ item.link }}') LINK
+            | {% endif %}{% if item.pdf %}, 
+            a(href='{{ item.pdf }}') PDF
+            | {% endif %}{% if item.project_page %}, 
+            a(href='{{ item.project_page }}') project page
+            | {% endif %}{% if item.arxiv %}, 
+            a(href='{{ item.arxiv }}') arXiv
+            | {% endif %}{% if item.url %}, 
+            a(href='{{ item.url }}') URL
+            | {% endif %}{% if item.other %}, 
+            | {{ item.other }}
+            | {% endif %}
+            | {% if item.bibtex %}
+            pre
+              code.language-bibtex
+                | {{ item.bibtex }}
+            | {% endif %}
+        | {% endfor %}
+
+      h4 International Conferences (Peer-reviewed)
+      ol(reversed=true)
+        | {% for item in page.international_conferences %}
+        li.publications
+          span {{ item.author }}
+          br
+          span {{ item.title }}
+          br
+          span
+            | {% if item.journal %}
+            | {{ item.journal }},
+            | {% endif %}
+            | {% if item.booktitle %}
+            | {{ item.booktitle }},
+            | {% endif %}
+            | {% if item.volume %}
+            | Vol.{{ item.volume }},
+            | {% endif %}
+            | {% if item.number %}
+            | No.{{ item.number }},
+            | {% endif %}
+            | {% if item.pages and item.pages contains '-' %}
+            | pp.{{ item.pages }},
+            | {% elsif item.pages %}
+            | p.{{ item.pages }},
+            | {% endif %}
+            | {% if item.year and item.month %}
+            | {{ item.year }}.{{ item.month }}
+            | {% elsif item.year %}
+            | {{ item.year }}
+            | {% endif %}
+          br
+          span
+            | {% if item.bibtex %}
+            a(class='bibtex', data-status='false') BibTeX
+            | {% endif %}{% if item.doi %}, 
+            a(href='https://doi.org/{{ item.doi }}') DOI
+            | {% endif %}{% if item.link %}, 
+            a(href='{{ item.link }}') LINK
+            | {% endif %}{% if item.pdf %}, 
+            a(href='{{ item.pdf }}') PDF
+            | {% endif %}{% if item.project_page %}, 
+            a(href='{{ item.project_page }}') project page
+            | {% endif %}{% if item.arxiv %}, 
+            a(href='{{ item.arxiv }}') arXiv
+            | {% endif %}{% if item.url %}, 
+            a(href='{{ item.url }}') URL
+            | {% endif %}{% if item.other %}, 
+            | {{ item.other }}
+            | {% endif %}
+            | {% if item.bibtex %}
+            pre
+              code.language-bibtex
+                | {{ item.bibtex }}
+            | {% endif %}
+        | {% endfor %}
+
+      h4 Domestic Conferences (Non-Peer-reviewed)
+      ol(reversed=true)
+        | {% for item in page.domestic_conferences %}
+        li.publications
+          span {{ item.author }}
+          br
+          span {{ item.title }}
+          br
+          span
+            | {% if item.journal %}
+            | {{ item.journal }},
+            | {% endif %}
+            | {% if item.booktitle %}
+            | {{ item.booktitle }},
+            | {% endif %}
+            | {% if item.volume %}
+            | Vol.{{ item.volume }},
+            | {% endif %}
+            | {% if item.number %}
+            | No.{{ item.number }},
+            | {% endif %}
+            | {% if item.pages and item.pages contains '-' %}
+            | pp.{{ item.pages }},
+            | {% elsif item.pages %}
+            | p.{{ item.pages }},
+            | {% endif %}
+            | {% if item.year and item.month %}
+            | {{ item.year }}.{{ item.month }}
+            | {% elsif item.year %}
+            | {{ item.year }}
+            | {% endif %}
+          br
+          span
+            | {% if item.bibtex %}
+            a(class='bibtex', data-status='false') BibTeX
+            | {% endif %}{% if item.doi %}, 
+            a(href='https://doi.org/{{ item.doi }}') DOI
+            | {% endif %}{% if item.link %}, 
+            a(href='{{ item.link }}') LINK
+            | {% endif %}{% if item.pdf %}, 
+            a(href='{{ item.pdf }}') PDF
+            | {% endif %}{% if item.project_page %}, 
+            a(href='{{ item.project_page }}') project page
+            | {% endif %}{% if item.arxiv %}, 
+            a(href='{{ item.arxiv }}') arXiv
+            | {% endif %}{% if item.url %}, 
+            a(href='{{ item.url }}') URL
+            | {% endif %}{% if item.other %}, 
+            | {{ item.other }}
+            | {% endif %}
+            | {% if item.bibtex %}
+            pre
+              code.language-bibtex
+                | {{ item.bibtex }}
+            | {% endif %}
+        | {% endfor %}
+| {% endif %}

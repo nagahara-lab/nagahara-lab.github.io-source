@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+| {% if page.background %}
+header.masthead(style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')")
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .post-heading
+          h1 {{ page.title }}
+          | {% if page.subtitle %}
+          h2.subheading {{ page.subtitle }}
+          | {% endif %}
+          span.meta Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %} on {{ page.date | date: '%B %d, %Y' }}
+| {% else %}
+header.masthead
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .post-heading
+          h1 {{ page.title }}
+          | {% if page.subtitle %}
+          h2.subheading {{ page.subtitle }}
+          | {% endif %}
+          span.meta Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %} on {{ page.date | date: '%B %d, %Y' }}
+| {% endif %}
+
+.container
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      | {{ content }}
+
+      hr
+
+      .clearfix
+        | {% if page.previous.url %}
+        a.btn.btn-primary.float-left(
+            href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"
+            data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}")
+          | {{ "&larr; Previous " }}
+          span.d-none.d-md-inline News
+        | {% endif %}
+        | {% if page.next.url %}
+        a.btn.btn-primary.float-right(
+            href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}"
+            data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}")
+          | {{ "Next " }}
+          span.d-none.d-md-inline News
+          | {{ " &rarr;" }}
+        | {% endif %}
+

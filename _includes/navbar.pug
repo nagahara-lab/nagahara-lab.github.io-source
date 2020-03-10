@@ -1,0 +1,31 @@
+nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+  .container
+    a.navbar-brand(href="/") {{ site.title | escape }}
+    button.navbar-toggler.navbar-toggler-right(
+        type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
+      Menu
+      i.fa.fa-bars
+
+    div#navbarResponsive.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link(href="/") Home
+        li.nav-item
+          a.nav-link(href="/research") Research
+        li.nav-item
+          a.nav-link(href="/members") Members
+        li.nav-item
+          a.nav-link(href="/publications") Publications
+        li.nav-item
+          a.nav-link(href="/news") News
+        li.nav-item
+          a.nav-link(href="/contact") Contact
+        | {% if page.page_ja %}
+        li.nav-item.trans
+          a.nav-link(href='{{ page.page_ja }}') 日本語
+        | {% elsif page.page_en %}
+        li.nav-item.trans
+          a.nav-link(href='{{ page.page_en }}') English
+        | {% endif %}
+

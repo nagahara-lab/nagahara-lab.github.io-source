@@ -1,0 +1,28 @@
+// Import Core Clean Blog SCSS
+@import "../assets/vendor/startbootstrap-clean-blog/scss/clean-blog.scss";
+a {
+  color: $blue;
+}
+.post-preview > a > *:first-child {
+  color: $blue;
+}
+a > span > i {
+  color: $gray-900;
+}
+
+a:not([href]):not([tabindex]) {
+  color: $blue;
+  text-decoration: none;
+}
+pre {
+  background-color: $gray-200;
+}
+li.publications {
+  font-size: 14px;
+}
+li.nav-item.trans {
+  border-left: 1px solid $gray-600;
+}
+ul.history > li {
+  font-size: 14px;
+}

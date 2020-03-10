@@ -1,0 +1,32 @@
+mixin share(href, cls)
+  li.list-inline-item
+    a(href=href)
+      span.fa-stack.fa-lg
+        i.fas.fa-circle.fa-stack-2x
+        i(class=cls)
+hr
+footer
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        ul.list-inline.text-center
+          | {% if site.email %}
+          +share("mailto:{{ site.email | encode_email }}", "far fa-envelope fa-stack-1x fa-inverse")
+          | {% endif %}
+          | {% if site.twitter_username %}
+          +share("https://twitter.com/{{ site.twitter_username }}", "fab fa-twitter fa-stack-1x fa-inverse")
+          | {% endif %}
+          | {% if site.facebook_username %}
+          +share("https://www.facebook.com/{{ site.facebook_username }}", "fab fa-facebook-f fa-stack-1x fa-inverse")
+          | {% endif %}
+          | {% if site.linkedin_username %}
+          +share("https://www.linkedin.com/in/{{ site.linkedin_username }}", "fab fa-linkedin fa-stack-1x fa-inverse")
+          | {% endif %}
+          | {% if site.github_username %}
+          +share("https://github.com/{{ site.github_username }}", "fab fa-github fa-stack-1x fa-inverse")
+          | {% endif %}
+
+        br
+        p(style="font-size: 1.5rem;") Osaka University Institute for Datability Science
+        p(style="font-size: 1rem;") TechnoAlliance Building B408, 2-8 Yamadaoka, Suita, Osaka 565-0871 Japan
+        p(class="copyright text-muted") Copyright &copy; {{ site.author }} {{ 'now' | date: "%Y" }}

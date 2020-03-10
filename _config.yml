@@ -1,0 +1,79 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+author: Nagahara Lab.
+title: Nagahara Lab.
+home_title: Nagahara Lab.
+university: Osaka University
+email: contact@ids.osaka-u.ac.jp
+description: >-
+  We focus on Computational Photography and Computer Vision.
+meta_description: >- # 300文字以内
+  長原研究室ではコンピュテーショナルフォトグラフィ (Computational Photography) をテーマに研究している．
+  従来のカメラは人間が見て意味のあるものを撮像するが，コンピュータビジョンの様々なタスクで使用する際にはカメラは必ずしも人間が見て意味のあるものを撮像する必要はない．
+  コンピュテーショナルフォトグラフィでは，従来の撮像過程を改変し後のタスクに適したセンシングを考えることで従来なし得なかった撮像・画像処理を可能にする．
+  我々の研究室ではこれまでに符号化露光カメラや符号化開口カメラ，フォーカススイープカメラなどの様々なタスクに応用可能なカメラを開発・研究してきた．
+keywords: >-
+  Computational Photography,Deep Sensing,Deep Optics,Task-Oriented Sensing,Video Compressive Sensing,Coded Exposure Camera,Coded Aperture Camera,Light Field Camera,Focus Sweep Camera,Time of Flight,Depth From Defocus,Multi-tap CMOS Image Sensor,コンピュテーショナルフォトグラフィ,符号化露光カメラ,符号化露光画像,符号化開口カメラ,ライトフィールドカメラ,圧縮ビデオセンシング,マルチタップCMOSイメージセンサ,フォーカススイープカメラ
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: ""
+github_username: nagahara-lab
+
+# Build settings
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-pug
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/:num/'
+  title: ':title'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - Gemfile
+  - Gemfile.lock
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+jekyll-pug:
+  minify: false # TODO

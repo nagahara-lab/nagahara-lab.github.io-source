@@ -1,0 +1,11 @@
+doctype html
+html(lang='en')
+  head
+    include head
+
+  body
+    include navbar
+    | {{ content }}
+    include footer
+    include scripts.html
+    include google-analytics.html

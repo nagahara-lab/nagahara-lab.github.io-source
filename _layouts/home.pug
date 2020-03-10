@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+| {% if page.background %}
+header.masthead(style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')")
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .page-heading
+          h2 {{ site.university }}
+          h1 {{ site.home_title }}
+          | {% if site.description %}
+          span.subheading {{ site.description }}
+          | {% endif %}
+| {% else %}
+header.masthead
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .page-heading
+          h2 {{ site.university }}
+          h1 {{ site.home_title }}
+          | {% if site.description %}
+          span.subheading {{ site.description }}
+          | {% endif %}
+| {% endif %}
+
+| {% if page.url contains '/ja/' %}
+.container
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      | {{ content }}
+
+      h2.section-heading What's New
+      | {% for post in site.posts limit : 5 %}
+      article.post-preview
+        a(href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}")
+          h5 {{ post.title }}
+          | {% if post.subtitle %}
+          h6 {{ post.subtitle }}
+          | {% else %}
+          h6 {{ post.excerpt | strip_html | truncatewords: 15 }}
+          | {% endif %}
+        p.post-meta
+          Posted by
+          | {% if post.author %}
+          | {{ post.author }}
+          | {% else %}
+          | {{ site.author }}
+          | {% endif %}
+          on
+          | {{ post.date | date: '%B %d, %Y' }}
+      hr
+      | {% endfor %}
+
+      .clearfix
+        a.btn.btn-primary.float-right(href="{{'/news' | relative_url }}") View All News &rarr;
+| {% else %}
+.container
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      | {{ content }}
+
+      h2.section-heading What's New
+      | {% for post in site.posts limit : 5 %}
+      article.post-preview
+        a(href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}")
+          h5 {{ post.title }}
+          | {% if post.subtitle %}
+          h6 {{ post.subtitle }}
+          | {% else %}
+          h6 {{ post.excerpt | strip_html | truncatewords: 15 }}
+          | {% endif %}
+        p.post-meta
+          Posted by
+          | {% if post.author %}
+          | {{ post.author }}
+          | {% else %}
+          | {{ site.author }}
+          | {% endif %}
+          on
+          | {{ post.date | date: '%B %d, %Y' }}
+      hr
+      | {% endfor %}
+
+      .clearfix
+        a.btn.btn-primary.float-right(href="{{'/news' | relative_url }}") View All News &rarr;
+| {% endif %}
