@@ -32,9 +32,10 @@ meta_description: >- # 300文字以内
 keywords: >-
   Computational Photography,Deep Sensing,Deep Optics,Task-Oriented Sensing,Video Compressive Sensing,Coded Exposure Camera,Coded Aperture Camera,Light Field Camera,Focus Sweep Camera,Time of Flight,Depth From Defocus,Multi-tap CMOS Image Sensor,コンピュテーショナルフォトグラフィ,符号化露光カメラ,符号化露光画像,符号化開口カメラ,ライトフィールドカメラ,圧縮ビデオセンシング,マルチタップCMOSイメージセンサ,フォーカススイープカメラ
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nagahara-lab.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: ""
 github_username: nagahara-lab
+google_analytics: UA-160213843-1
 
 # Build settings
 theme: minima
@@ -76,4 +77,4 @@ exclude:
 #   - vendor/gems/
 #   - vendor/ruby/
 jekyll-pug:
-  minify: false # TODO
+  minify: true
