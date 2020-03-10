@@ -12,33 +12,14 @@ permalink: /members/
   * [Personal Page](./nagahara)
   * [Google Scholar](https://scholar.google.com/citations?user=CZyXjREAAAAJ)
 
-### Specially Appointed Assistant Professor
-* Trung Thanh Ngo
-  * Email: `trung@am.sanken.`
-  * TEL: 6072 FAX: 6075
-  * [Personal Page](http://www.am.sanken.osaka-u.ac.jp/~trung/)
-  * [Google Scholar](https://scholar.google.com/citations?user=i5UfXBIAAAAJ)
-
-### Specially Appointed Researcher
-* Thuong Nguyen Canh
-  * Email: `ngcthuong@ids.`
-  * TEL: 6073 FAX: 6075
-  * [Personal Page](https://ngcthuong.github.io/)
-  * [Google Scholar](https://scholar.google.com/citations?user=btY_JpQAAAAJ)
-
 <hr>
 # Student
-### D1
+### D2
 * Michitaka Yoshida
   * Email: `yoshida@am.sanken.`
   * [Google Scholar](https://scholar.google.com/citations?user=4YBUtSEAAAAJ)
 
-### M2
-* Tadashi Okawara
-  * Email: `okawara@am.sanken.`
-  * [Google Scholar](https://scholar.google.com/citations?user=VVDPhF0AAAAJ)
-
-### B4
+### M1
 * Kosuke Fukui
   * Email: `fukui@am.sanken.`
 
