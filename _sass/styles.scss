@@ -9,10 +9,12 @@ a {
 a > span > i {
   color: $gray-900;
 }
-
 a:not([href]):not([tabindex]) {
-  color: $blue;
+  color: $gray-900;
   text-decoration: none;
+}
+a.bibtex:not([href]) {
+  color: $blue;
 }
 pre {
   background-color: $gray-200;
