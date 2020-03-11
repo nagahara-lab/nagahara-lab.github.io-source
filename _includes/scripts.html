@@ -31,7 +31,7 @@ $(function (){
     var $this = $(this);
     var title = $this.text().match(/[^kK]title\s?=\s?{(.*?)},?/)[1] || "BibTeX";
     $this.hide();
-    $this.parent().before($("<a>", {text: title, "data-status": "false"}).click(function(){
+    $this.parent().before($("<a>", {text: title, "data-status": "false", "class": "bibtex"}).click(function(){
       if($(this).data("status")) {
         $(this).data("status", false);
         $this.hide();
