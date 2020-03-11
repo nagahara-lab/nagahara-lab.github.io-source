@@ -7,7 +7,9 @@ permalink: /members/alumni/
 # Staff
 ### Specially Appointed Assistant Professor
 * Yichao Xu
-  * XXXX - 2019.08
+  * 2017.12 - 2019.08
+  * [Personal Page](http://www.xuyichao.cn/)
+  * [Google Scholar](https://scholar.google.co.jp/citations?hl=ja&user=WQAmH8kAAAAJ)
 
 ### Specially Appointed Assistant Professor
 * Trung Thanh Ngo
