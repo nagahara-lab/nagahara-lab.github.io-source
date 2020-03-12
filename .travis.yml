@@ -1,10 +1,12 @@
 language: node_js
 node_js:
   - "7"
+addons:
+  apt:
+    packages:
+    - lftp
 
 before_install:
-  - sudo apt-get update -y
-  - sudo apt-get install -y lftp
   - rvm install 2.6
   - gem install bundler
   - npm install --global pug
@@ -19,4 +21,9 @@ script:
   - bundle install
   - bundle exec jekyll build
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
+  - rm -rf _site
+  - "sed -i -e \"s/baseurl:\\ \\\"\\\"/baseurl:\\ \\\"\\/nagahara\\\"/\" _config.yml"
+  - sed -i -e 's/https:\/\/nagahara-lab.github.io/http:\/\/ids.osaka-u.ac.jp/' _config.yml
+  - bundle exec jekyll build
+  - rm -rf _site/deploy*
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy_ftp.sh'
