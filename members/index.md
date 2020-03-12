@@ -17,6 +17,7 @@ permalink: /members/
 ### D2
 * Michitaka Yoshida
   * Email: `yoshida@am.sanken.`
+  * [Personal Page](https://michitakayoshida.github.io/)
   * [Google Scholar](https://scholar.google.com/citations?user=4YBUtSEAAAAJ)
 
 ### M1

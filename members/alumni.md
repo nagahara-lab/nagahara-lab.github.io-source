@@ -28,6 +28,7 @@ permalink: /members/alumni/
 ### Ph.D.
 * Takuya Yoda
   * 2016.04 - 2019.03
+  * [Personal Page](https://takuyayoda.github.io/)
 
 ### M.E.
 * Kento Shireida
