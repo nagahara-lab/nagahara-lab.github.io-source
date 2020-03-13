@@ -1,6 +1,6 @@
 nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
   .container
-    a.navbar-brand(href="/") {{ site.title | escape }}
+    a.navbar-brand(href="{{'/' | relative_url }}") {{ site.title | escape }}
     button.navbar-toggler.navbar-toggler-right(
         type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
@@ -10,22 +10,22 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
     div#navbarResponsive.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
         li.nav-item
-          a.nav-link(href="/") Home
+          a.nav-link(href="{{'/' | relative_url }}") Home
         li.nav-item
-          a.nav-link(href="/projects") Projects
+          a.nav-link(href="{{'/projects' | relative_url }}") Projects
         li.nav-item
-          a.nav-link(href="/members") Members
+          a.nav-link(href="{{'/members' | relative_url }}") Members
         li.nav-item
-          a.nav-link(href="/publications") Publications
+          a.nav-link(href="{{'/publications' | relative_url }}") Publications
         li.nav-item
-          a.nav-link(href="/news") News
+          a.nav-link(href="{{'/news' | relative_url }}") News
         li.nav-item
-          a.nav-link(href="/contact") Contact
+          a.nav-link(href="{{'/contact' | relative_url }}") Contact
         | {% if page.page_ja %}
         li.nav-item.trans
-          a.nav-link(href='{{ page.page_ja }}') 日本語
+          a.nav-link(href="{{ page.page_ja | relative_url }}") 日本語
         | {% elsif page.page_en %}
         li.nav-item.trans
-          a.nav-link(href='{{ page.page_en }}') English
+          a.nav-link(href="{{ page.page_en | relative_url }}") English
         | {% endif %}
 

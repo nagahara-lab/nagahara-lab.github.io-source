@@ -65,6 +65,11 @@ pagination:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - deploy.sh
+  - deploy_ftp.sh
+  - deploy_key.enc
+  - README.md
+  - assets/vendor/
 # exclude:
 #   - .sass-cache/
 #   - .jekyll-cache/

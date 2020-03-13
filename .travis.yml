@@ -21,9 +21,10 @@ script:
   - bundle install
   - bundle exec jekyll build
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
-  - rm -rf _site
+  - rm -rf _site .sass-cache .jekyll-cache .jekyll-metadata
   - "sed -i -e \"s/baseurl:\\ \\\"\\\"/baseurl:\\ \\\"\\/nagahara\\\"/\" _config.yml"
   - sed -i -e 's/https:\/\/nagahara-lab.github.io/http:\/\/ids.osaka-u.ac.jp/' _config.yml
+  - cat _config.yml
   - bundle exec jekyll build
   - rm -rf _site/deploy*
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy_ftp.sh'

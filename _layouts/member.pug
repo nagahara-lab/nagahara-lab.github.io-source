@@ -3,7 +3,7 @@ layout: default
 ---
 
 | {% if page.background %}
-header.masthead(style="background-image: url('{{ page.background }}')")
+header.masthead(style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')")
   .overlay
   .container
     .row
@@ -31,9 +31,9 @@ header.masthead
   .row
     .col-lg-3
       | {% if page.image_url %}
-      img(src="{{page.image_url}}", width="100%")
+      img(src="{{ page.image_url | prepend: site.baseurl | replace: '//', '/' }}", width="100%")
       | {% else %}
-      img(src="/assets/imgs/photo.jpeg", width="100%")
+      img(src="{{ '/assets/imgs/photo.jpeg' | prepend: site.baseurl | replace: '//', '/' }}", width="100%")
       | {% endif %}
     .col-lg-9.mx-auto
       h1 {{ page.member_name }}
@@ -270,9 +270,9 @@ header.masthead
   .row
     .col-lg-3
       | {% if page.image_url %}
-      img(src="{{page.image_url}}", width="100%")
+      img(src="{{ page.image_url | prepend: site.baseurl | replace: '//', '/' }}", width="100%")
       | {% else %}
-      img(src="/assets/imgs/photo.jpeg", width="100%")
+      img(src="{{ '/assets/imgs/photo.jpeg' | prepend: site.baseurl | replace: '//', '/' }}", width="100%")
       | {% endif %}
     .col-lg-9.mx-auto
       h1 {{ page.member_name }}
