@@ -10,10 +10,14 @@ before_install:
   - rvm install 2.6
   - gem install bundler
   - npm install --global pug
-  - openssl aes-256-cbc -K $encrypted_189e52c2c347_key -iv $encrypted_189e52c2c347_iv -in "./deploy_key.enc" -out deploy_key -d
+  - openssl aes-256-cbc -K $encrypted_3b9f0b9d36d1_key -iv $encrypted_3b9f0b9d36d1_iv -in secrets.tar.enc -out secrets.tar -d
+  - tar xvf secrets.tar
   - chmod 600 deploy_key
+  - chmod 600 deploy_key_nagahara
   - eval `ssh-agent -s`
   - ssh-add deploy_key
+  - ssh-add deploy_key_nagahara
+  - echo -e "\nHost github.com.io\n  HostName github.com\n  User git\n  Port 22\n  IdentityFile ~/.ssh/deploy_key\n  TCPKeepAlive yes\n  IdentitiesOnly yes\n\nHost github.com.jp\n  HostName github.com\n  User git\n  Port 23\n  IdentityFile ~/.ssh/deploy_key_nagahara\n  TCPKeepAlive yes\n  IdentitiesOnly yes\n" >> ~/.ssh/config
   - git config --global user.name "Travis-CI"
   - git config --global user.email "travis-ci@example.com"
 
@@ -21,10 +25,12 @@ script:
   - bundle install
   - bundle exec jekyll build
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
-  - rm -rf _site .sass-cache .jekyll-cache .jekyll-metadata
+  - rm -rf _site .sass-cache .jekyll-cache .jekyll-metadata secrets.tar*
   - "sed -i -e \"s/baseurl:\\ \\\"\\\"/baseurl:\\ \\\"\\/nagahara\\\"/\" _config.yml"
-  - sed -i -e 's/https:\/\/nagahara-lab.github.io/http:\/\/ids.osaka-u.ac.jp/' _config.yml
+  - sed -i -e 's/https:\/\/nagahara-lab.github.io\//http:\/\/ids.osaka-u.ac.jp\//' _config.yml
   - cat _config.yml
   - bundle exec jekyll build
   - rm -rf _site/deploy*
+  - rm -rf _site/deploy* _site/secrets.tar*
+  - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy_nagahara.sh'
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy_ftp.sh'

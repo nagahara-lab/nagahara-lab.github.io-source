@@ -31,8 +31,8 @@ meta_description: >- # 300文字以内
   我々の研究室ではこれまでに符号化露光カメラや符号化開口カメラ，フォーカススイープカメラなどの様々なタスクに応用可能なカメラを開発・研究してきた．
 keywords: >-
   Computational Photography,Deep Sensing,Deep Optics,Task-Oriented Sensing,Video Compressive Sensing,Coded Exposure Camera,Coded Aperture Camera,Light Field Camera,Focus Sweep Camera,Time of Flight,Depth From Defocus,Multi-tap CMOS Image Sensor,コンピュテーショナルフォトグラフィ,符号化露光カメラ,符号化露光画像,符号化開口カメラ,ライトフィールドカメラ,圧縮ビデオセンシング,マルチタップCMOSイメージセンサ,フォーカススイープカメラ
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://nagahara-lab.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/nagahara" # the subpath of your site, e.g. /blog
+url: "http://ids.osaka-u.ac.jp" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: ""
 github_username: nagahara-lab
 google_analytics: UA-160213843-1
@@ -68,6 +68,7 @@ exclude:
   - deploy.sh
   - deploy_ftp.sh
   - deploy_key.enc
+  - secrets.tar.enc
   - README.md
   - assets/vendor/
 # exclude:
